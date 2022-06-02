@@ -46,7 +46,8 @@ ECMAScript라고 하며 JavaScript와 헷갈릴 수 있는데 ECMAScript는 일�
 
 ES6에서 내가 자주 쓰는것들 위주로 몇 가지 정리해 보면,
 
-- 변수선언
+변수선언
+: var대신 const, let을 사용한다.
 
 ```javascript
 // 이전의 JavaScript
@@ -57,23 +58,35 @@ const name = "devobba"; // 상수 재할당 X
 let name = "devobba"; // 변수 재할당 O
 ```
 
-- 화살표 함수(arrow function)
+화살표 함수(arrow function)
+: 화살표를 사용한 함수의 표현식
 
 ```javascript
 // 이전의 JavaScript
 function plus(a, b) {
   return a + b;
 }
+console.log(plus(5, 6)); // 11
+
+var list = ["apple", "banana", "orange"];
+console.log(
+  list.map(function (item) {
+    return item.length;
+  })
+); // [5, 6, 5]
 
 // ES6이후
 const plus = (a, b) => {
   return a + b;
 };
-
 console.log(plus(5, 6)); // 11
+
+const list = ["apple", "banana", "orange"];
+console.log(list.map((item) => item.length)); // [5, 6, 5]
 ```
 
-- 파라미터 기본값 설정
+매개변수 기본값 설정
+: 함수에 넘기는 매개변수의 값이 '', null, undefined일 경우 기본값을 대신 사용 할 수 있다.
 
 ```javascript
 const plus = (a, b = 10) => {
@@ -84,7 +97,8 @@ console.log(plus(5, 6)); // 11
 console.log(plus(5)); // 15
 ```
 
-- Template Literal
+Template Literal
+: 문자열 템플릿을 이용하여 표현할 수 있다. java의 String.format() 메소드와 유사하다.
 
 ```javascript
 // 이전의 JavaScript
@@ -96,22 +110,30 @@ const name = "devobba";
 console.log(`hi ${name}! nice meet you.`); // hi devobba! nice meet you.
 ```
 
-- object key 생략(key와 변수명이 같다면 생략가능)
+Destructuring assignment (구조분해할당?)
+: 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식입니다.
 
 ```javascript
-// 이전의 JavaScript
-var name = "devobba";
-var obj = {
-  name: name,
-};
-console.log(obj.name); // devobba
+let first, second, other;
+const [first, second, ...other] = ["a", "b", "c", "d", "e"];
+console.log(first); // a
+console.log(second); // b
+console.log(other); // ["c", "d", "e"];
+```
 
-// ES6이후
-const name = "devobba";
-const obj = {
-  name,
-};
-console.log(obj.name); // devobba
+import, export
+: 다른 js파일에서 작성된 코드를 java처럼 import하여 사용할 수 있다. 단, 다른 js파일에서 export를 해줘야한다. 예제를 보면 그냥 export와 default export의 차이점이 있다.
+
+```javascript
+// util.mjs
+const plus = (a, b) => a + b;
+export const minus = (a, b) => a - b;
+export default plus;
+
+// main.mjs
+import plus, { minus } from "./util.mjs";
+console.log(plus(1, 2)); // 3
+console.log(minus(2, 1)); // 1
 ```
 
 ## Vue 익숙해지기

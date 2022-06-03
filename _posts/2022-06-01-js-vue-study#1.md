@@ -1,7 +1,7 @@
 ---
 title: Vue.js Study#1 - 사전준비
 date: 2022-06-02 14:59:00 +0900
-categories: [JS, Vue]
+categories: [Javascript, Vue.js]
 tags: [Vue.js, Vue Study]
 published: true
 ---

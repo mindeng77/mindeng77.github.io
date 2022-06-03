@@ -1,9 +1,9 @@
 ---
-title: Vue.js 스터디
+title: Vue.js Study#1 - 사전준비
 date: 2022-06-02 14:59:00 +0900
 categories: [JS, Vue]
-tags: [vue.js, vue study]
-published: false
+tags: [Vue.js, Vue Study]
+published: true
 ---
 
 작년 부터 유독 Vue나 React 프로젝트들이 많이 보이기 시작했다.
@@ -35,7 +35,7 @@ SPA는 CSR[^csr]이라고 하여 클라이언트에서 렌더링을 하는 방�
 이와는 다르게 SPA는 페이지 이동시 서버에 요청을 하지 않는다. 이미 다음 페이지를 렌더링할 리소스를 가지고 있기 때문이다. 단 데이터를 출력하기 위한 요청을 하긴 한다.
 
 개인적인 생각이지만, SPA이전의 웹은 페이지를 렌더링하기 위한 요청을 여러번 하기 때문에 SPA와 비교해서 MPA[^mpa]라고 `굳이` 이름을 붙인게 아닌가 싶고,
-SPA는 페이지를 렌더링하기 위한 요청을 한번만 하기 때문에 Single Page라고 하는게 아닌가 싶다.
+SPA는 페이지를 렌더링하기 위한 요청을 한번만 하기 때문에 Single Page 라고 하는게 아닌가 싶다.
 
 ## ES6에 익숙해지기
 
@@ -136,13 +136,9 @@ console.log(plus(1, 2)); // 3
 console.log(minus(2, 1)); // 1
 ```
 
-## Vue 익숙해지기
-
-- 상태(data)
-
--
-
-## 마치며
+<!-- prettier-ignore -->
+> [**Vue Study**](/tags/vue-study) 에서 전체 글을 확인 할 수 있습니다.
+{: .prompt-info }
 
 #### 각주
 

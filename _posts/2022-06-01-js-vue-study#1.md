@@ -110,15 +110,50 @@ const name = "devobba";
 console.log(`hi ${name}! nice meet you.`); // hi devobba! nice meet you.
 ```
 
+spread operator
+: 전개 연산자라고 하여 Object나 Array의 항목을 나열한다.
+
+```javascript
+const list1 = ["a", "b", "c"];
+const list2 = ["d", "e"];
+const list3 = [...list1, ...list2];
+console.log(list3); // ["a", "b", "c", "d", "e"]
+
+const devobba = { name: "devobba", age: 28 };
+const devunni = { name: "devunni", age: 26, sex: "woman" };
+const devFamily = { ...devobba, ...devunni };
+console.log(devFamily);
+/*
+Ojbect같은 경우는 병합하는 Object의 키가 이미 있을 경우 덮어 씌우게 되어 맨 마지막 인자의 값이
+최종적으로 남게 된다.
+{
+  age: 26,
+  name: "devunni",
+  sex: "woman"
+}
+*/
+```
+
 Destructuring assignment (구조분해할당?)
 : 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식입니다.
 
 ```javascript
+// Array
 let first, second, other;
 const [first, second, ...other] = ["a", "b", "c", "d", "e"];
 console.log(first); // a
 console.log(second); // b
 console.log(other); // ["c", "d", "e"];
+
+// Object
+const userInfo = { name: "devobba", age: 28 };
+const { name } = userInfo;
+console.log(name); // devobba
+
+const printAge = ({ age }) => {
+  console.log(age);
+};
+printAge(userInfo); // 28
 ```
 
 import, export
@@ -134,6 +169,63 @@ export default plus;
 import plus, { minus } from "./util.mjs";
 console.log(plus(1, 2)); // 3
 console.log(minus(2, 1)); // 1
+```
+
+#### 그 밖에 자주쓰는 것들
+
+===, ==
+: 둘의 차이는 ===는 type까지 비교한다는것
+
+```javascript
+console.log(1 == "1"); // true
+console.log(1 === "1"); // false
+```
+
+Array.map(`callback function`)
+: 배열을 for문을 돌려 같은 크기가 같고 다른 형태의 배열을 생성할 수 있다.
+
+```javascript
+const list = ["apple", "banana", "orange"];
+console.log(list.map((item) => `like ${item}`)); // ["like apple", "like banana", "like orange"]
+console.log(list.map((item) => item.length)); // [5, 6, 6]
+console.log(
+  list.map((item, index) => {
+    return {
+      name: item,
+      order: index,
+    };
+  })
+);
+/*
+[{
+  name: "apple",
+  order: 0
+}, {
+  name: "banana",
+  order: 1
+}, {
+  name: "orange",
+  order: 2
+}]
+*/
+```
+
+Array.find(`callback function`), Array.findIndex(`callback function`)
+: 배열에서 특정 조건의 요소를 찾는다. `callback function`에서 특정 요소를 찾으면 for문을 중단한다. 찾지 못하면 defined, -1을 반환
+
+```javascript
+const list = [1, 2, 3, 1];
+console.log(list.find((item) => item === 1)); // 1
+console.log(list.findIndex((item) => item === 1)); // 0
+```
+
+변수명을 Object의 Key로 사용
+: 변수명과 Key가 같다면 Key를 생략해도 된다.
+
+```javascript
+const name = "devobba";
+const obj = { name }; // => const obj = { name: name }
+console.log(obj.name); // devobba
 ```
 
 <!-- prettier-ignore -->

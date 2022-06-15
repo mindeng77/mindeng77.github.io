@@ -1,3 +1,14 @@
+PATH
+  remote: .
+  specs:
+    jekyll-theme-chirpy (5.2.0)
+      jekyll (~> 4.1)
+      jekyll-archives (~> 2.2)
+      jekyll-paginate (~> 1.1)
+      jekyll-redirect-from (~> 0.16)
+      jekyll-seo-tag (~> 2.7)
+      jekyll-sitemap (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -11,7 +22,6 @@ GEM
     ethon (0.15.0)
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
-    ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
     forwardable-extended (2.6.0)
     html-proofer (3.19.4)
@@ -51,13 +61,6 @@ GEM
       jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-theme-chirpy (5.1.0)
-      jekyll (~> 4.1)
-      jekyll-archives (~> 2.2)
-      jekyll-paginate (~> 1.1)
-      jekyll-redirect-from (~> 0.16)
-      jekyll-seo-tag (~> 2.7)
-      jekyll-sitemap (~> 1.4)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.4.0)
@@ -70,8 +73,6 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
     nokogiri (1.13.6-x64-mingw-ucrt)
-      racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     parallel (1.22.1)
     pathutil (0.16.2)
@@ -103,11 +104,10 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
-  x86_64-linux
 
 DEPENDENCIES
   html-proofer (~> 3.18)
-  jekyll-theme-chirpy (~> 5.1, >= 5.1.0)
+  jekyll-theme-chirpy!
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)

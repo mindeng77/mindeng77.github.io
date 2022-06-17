@@ -2,7 +2,7 @@
 title: Bootstrap Modal창 바깥영역 클릭시 닫히지 않게 하기
 date: 2021-11-18 09:00:00 +0900
 categories: [Javascript, Vue.js]
-tags: [Vue.js, Vue Study]
+tags: [Vue.js]
 published: true
 ---
 

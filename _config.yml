@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: DevObba # the main title
+title: 개발오빠 # the main title
 
 tagline: 교회오빠말고 개발오빠 # it will display as the sub-title
 

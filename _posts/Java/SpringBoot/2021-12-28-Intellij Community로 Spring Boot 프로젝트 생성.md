@@ -56,6 +56,7 @@ Run... 선택
 
 브라우저에서 확인
 ![컨트롤러를 등록한게 없어서 404에러가 남](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdVUqo0%2Fbtro7grATug%2FZwXvX9KJTQSVFLsIFbr3vK%2Fimg.png)
+
 컨트롤러를 등록한게 없어서 404에러가 남
 
 **/src/main/java/com.example.demo/DemoController.java**

@@ -238,7 +238,9 @@ export default App;
 ## 실행
 
 ![Desktop View](/assets/img/2023-01-10-01.png)
+이메일을 입력하고 로그인버튼 클릭
 
 ![Desktop View](/assets/img/2023-01-10-02.png)
+로그인 처리후 Root화면으로 이동
 
 [출처: https://blog.logrocket.com/complete-guide-authentication-with-react-router-v6](https://blog.logrocket.com/complete-guide-authentication-with-react-router-v6){:target="\_blank"}

@@ -208,12 +208,13 @@ import PageNotFound from "./pages/error/PageNotFound";
 function App() {
   return (
     <Routes>
+      <Route path="*" element={<PageNotFound />} />
       <Route element={<AuthLayout />}>
         <Route
           path="/"
           element={
             <AuthRoute>
-              <Root />
+              <RootPage />
             </AuthRoute>
           }
         />
@@ -227,7 +228,6 @@ function App() {
         />
         <Route path="/login" element={<LoginPage />} />
       </Route>
-      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
@@ -235,7 +235,7 @@ function App() {
 export default App;
 ```
 
-## 실행
+## 실행화면
 
 ![Desktop View](/assets/img/2023-01-10-01.png)
 이메일을 입력하고 로그인버튼 클릭

@@ -1,5 +1,5 @@
 ---
-title: [postman] 모든 요청에 access token 자동 설정
+title: postman 모든 요청에 access token 자동 설정
 date: 2023-01-19 14:09:00 +0900
 categories: [Tool]
 tags: [postman]

@@ -8,7 +8,7 @@ published: true
 
 # 기본 설정
 
-## src/hooks/useLocalStorage.js
+## /src/hooks/useLocalStorage.js
 
 로그인 정보를 저장하기 위한 유틸
 
@@ -99,11 +99,9 @@ export const useAuth = () => {
 };
 ```
 
-<br />
+## /src/components/layout/auth/AuthLayout.jsx
 
-**/src/components/layout/AuthLayout.jsx**
-
-권한체크가 필요한 Route의 상단에서 적용하여 하위 Route에서 권한 정보에 접근할 수 있게 AuthProvider를 사용
+AuthProvider를 감싸서 하위의 컴포넌트들이 권한 정보의 접근이 가능하게 함.
 
 ```jsx
 import React from "react";
@@ -118,31 +116,48 @@ const AuthLayout = () => {
 export default AuthLayout;
 ```
 
-<br/>
+## /src/components/auth/ProtectedLayout.jsx
 
-**/src/components/AuthRoute.jsx**
-
-각 Route에서 권한이 필요한 Route에서 사용, 여기에서 권한에 따라 분기를 한다.
+전체 layout을 구성하고 로그인 체크를 한다. 로그인이 필요한 모든 화면은 해당 컴포넌트의 자식으로 등록한다.
 
 ```jsx
 import React from "react";
-import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { Navigate, Outlet } from "react-router-dom";
 
-const AuthRoute = ({ children }) => {
+import { useAuth } from "../../context/AuthContext";
+import Header from "../layout/Header";
+import Nav from "../layout/Nav";
+import Footer from "../layout/Footer";
+
+export default function ProtectedLayout() {
   const { isLogin } = useAuth();
+
+  // 로그인체크
   if (!isLogin()) {
+    // 로그인 화면으로 이동
     return <Navigate to="/login" />;
   }
-  return children;
-};
 
-export default AuthRoute;
+  return (
+    <>
+      <div className="wrap">
+        <Header />
+        <main className="main">
+          <Nav />
+          <Outlet />
+        </main>
+      </div>
+      <Footer />
+    </>
+  );
+}
 ```
 
-## 사용
+## 그 밖에 화면들
 
 **/src/pages/LoginPage.jsx**
+
+로그인화면
 
 ```jsx
 import React, { useState } from "react";
@@ -170,75 +185,99 @@ export default function LoginPage() {
 }
 ```
 
-**/src/pages/RootPage.jsx**
+**/src/pages/MainPage.jsx**
 
 ```jsx
 import React from "react";
-import { useAuth } from "../context/AuthContext";
 
-export default function Root() {
-  const { logout, user } = useAuth();
-  return (
-    <div>
-      <h3>Root화면</h3>
-      <p>사용자정보: {JSON.stringify(user)}</p>
-      <button onClick={logout}>로그아웃</button>
-    </div>
-  );
+export default function MainPage() {
+  return <div>MainPage</div>;
 }
 ```
 
-**/src/App.jsx**
+**/src/pages/error/PageNotFound.jsx**
+
+```jsx
+import React from "react";
+
+export default function PageNotFound() {
+  return <div>PageNotFound</div>;
+}
+```
+
+## /router/system.js
+
+각 메뉴별로 모듈화
+
+```javascript
+import React from "react";
+import AuthManagePage from "../pages/system/AuthManagePage";
+import RootMenuMngPage from "../pages/system/RootMenuMngPage";
+
+const system = [
+  {
+    path: "system/auth",
+    element: <AuthManagePage />,
+  },
+  {
+    path: "system/menu",
+    element: <RootMenuMngPage />,
+  },
+];
+
+export default system;
+```
+
+## /src/App.jsx
 
 ```jsx
 import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 
-import AuthRoute from "./components/AuthRoute";
-import AuthLayout from "./components/layout/AuthLayout";
+import AuthLayout from "./components/auth/AuthLayout";
 
-import RootPage from "./pages/RootPage";
-import LoginPage from "./pages/LoginPage";
-import MyPage from "./pages/user/MyPage";
+import LoginPage from "./pages/account/LoginPage";
+import MainPage from "./pages/MainPage";
+import ProtectedLayout from "./components/auth/ProtectedLayout";
 import PageNotFound from "./pages/error/PageNotFound";
 
-function App() {
+import system from "./router/system";
+
+export default function App() {
   return (
     <Routes>
       <Route path="*" element={<PageNotFound />} />
+
       <Route element={<AuthLayout />}>
-        <Route
-          path="/"
-          element={
-            <AuthRoute>
-              <RootPage />
-            </AuthRoute>
-          }
-        />
-        <Route
-          path="/mypage"
-          element={
-            <AuthRoute>
-              <MyPage />
-            </AuthRoute>
-          }
-        />
         <Route path="/login" element={<LoginPage />} />
+
+        <Route element={<ProtectedLayout />}>
+          <Route path="/" element={<MainPage />} />
+          {system.map((item) => (
+            <Route key={item.path} path={item.path} element={item.element} />
+          ))}
+        </Route>
       </Route>
     </Routes>
   );
 }
-
-export default App;
 ```
 
-## 실행화면
+## 테스트
 
-![Desktop View](/assets/img/2023-01-10-01.png)
+### 로그인
+
+![로그인](/assets/img/2023-01-10-01.png)
 이메일을 입력하고 로그인버튼 클릭
 
-![Desktop View](/assets/img/2023-01-10-02.png)
+### 로그인 후 메인화면
+
+![메인화면](/assets/img/2023-01-10-02.png)
 로그인 처리후 Root화면으로 이동
+
+### Page Not Found
+
+![PageNotFound](/assets/img/2023-01-10-03.png)
 
 [출처: https://blog.logrocket.com/complete-guide-authentication-with-react-router-v6](https://blog.logrocket.com/complete-guide-authentication-with-react-router-v6){:target="\_blank"}

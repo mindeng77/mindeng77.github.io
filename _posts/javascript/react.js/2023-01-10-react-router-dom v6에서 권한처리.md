@@ -6,9 +6,9 @@ tags: [React.js, React Router]
 published: true
 ---
 
-## 기본 설정
+# 기본 설정
 
-**/src/hooks/useLocalStorage.js**
+## src/hooks/useLocalStorage.js
 
 로그인 정보를 저장하기 위한 유틸
 
@@ -42,9 +42,7 @@ export const useLocalStorage = (keyName, defaultValue) => {
 };
 ```
 
-<br />
-
-**/src/context/AuthContext.jsx**
+## /src/context/AuthContext.jsx
 
 Context를 이용하여 AuthProvider 하위의 컴포넌트에서 로그인, 로그아웃, 사용자 정보에 접근할 수 있게 한다.
 

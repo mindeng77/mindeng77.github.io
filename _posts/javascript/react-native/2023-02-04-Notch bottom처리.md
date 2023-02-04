@@ -1,6 +1,6 @@
 ---
 title: native base에서 safe area 처리
-date: 2020-03-15 15:25:00 +0900
+date: 2023-03-15 15:25:00 +0900
 categories: [Javascript, React Native]
 tags: [React Native, ios, notch, SafeAreaView]
 published: true

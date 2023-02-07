@@ -1,6 +1,6 @@
 ---
 title: useState hook으로 생성한 상태정보를 set할때 callback 함수 사용하기
-date: 2020-03-15 15:25:00 +0900
+date: 2023-02-07 10:38:00 +0900
 categories: [Javascript, React Native]
 tags: [React Native]
 published: true

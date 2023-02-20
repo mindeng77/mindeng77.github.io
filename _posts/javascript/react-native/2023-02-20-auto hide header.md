@@ -30,7 +30,7 @@ module.exports = function (api) {
 
 컴포넌트로 만들었다.
 
-```jsx
+```javascript
 // components/HeaderHideScrollView.jsx
 import { Platform, StatusBar, View } from "react-native";
 import Animated from "react-native-reanimated";

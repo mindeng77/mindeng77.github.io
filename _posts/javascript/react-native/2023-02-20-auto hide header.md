@@ -47,6 +47,7 @@ export default function HeaderHideScrollView({ children }) {
   });
   return (
     <View style={{ flex: 1 }}>
+      {% raw %}
       <Animated.View
         style={{
           position: "absolute",
@@ -62,6 +63,7 @@ export default function HeaderHideScrollView({ children }) {
           ],
         }}
       />
+      {% endraw %}
       <Animated.ScrollView
         bounces={false}
         scrollEventThrottle={16}

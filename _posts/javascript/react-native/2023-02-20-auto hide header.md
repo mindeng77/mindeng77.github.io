@@ -1,5 +1,5 @@
 ---
-title: [expo] auto hide header on scroll
+title: auto hide header on scroll
 date: 2023-02-20 17:43:00 +0900
 categories: [Javascript, React Native]
 tags: [React Native, auto hide header]
@@ -30,7 +30,8 @@ module.exports = function (api) {
 
 컴포넌트로 만들었다.
 
-```javascript
+```jsx
+{% raw %}
 // components/HeaderHideScrollView.jsx
 import { Platform, StatusBar, View } from "react-native";
 import Animated from "react-native-reanimated";
@@ -47,7 +48,6 @@ export default function HeaderHideScrollView({ children }) {
   });
   return (
     <View style={{ flex: 1 }}>
-      {% raw %}
       <Animated.View
         style={{
           position: "absolute",
@@ -63,7 +63,6 @@ export default function HeaderHideScrollView({ children }) {
           ],
         }}
       />
-      {% endraw %}
       <Animated.ScrollView
         bounces={false}
         scrollEventThrottle={16}
@@ -83,6 +82,7 @@ export default function HeaderHideScrollView({ children }) {
     </View>
   );
 }
+{% endraw %}
 ```
 
 ## 사용

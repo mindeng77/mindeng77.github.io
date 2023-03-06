@@ -43,10 +43,12 @@ sudo yum install git
 
 ## 저장소 만들기
 
+```shell
 sudo mkdir -p /git
 sudo chown -R user01:user01 /git/
 cd /git
 git init --bare sample.git
+```
 
 ## local에서 저장소 생성 및 remote push
 

@@ -103,7 +103,7 @@ export default instance;
 
 ui template으로 mui를 사용
 
-```javascript
+```jsx
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -119,11 +119,13 @@ const CircularProgressCentered = ({ open }) => {
       open={open}
       BackdropProps={{
         style: {
+          // 배경을 투명하게 설정하여 제거
           backgroundColor: "transparent",
         },
       }}
       PaperProps={{
         style: {
+          // 그림자를 없애기 위해 boxShadow를 설정하지 않음
           boxShadow: "none",
         },
       }}

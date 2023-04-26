@@ -115,21 +115,7 @@ import "./App.css";
 
 const CircularProgressCentered = ({ open }) => {
   return (
-    <Dialog
-      open={open}
-      BackdropProps={{
-        style: {
-          // 배경을 투명하게 설정하여 제거
-          backgroundColor: "transparent",
-        },
-      }}
-      PaperProps={{
-        style: {
-          // 그림자를 없애기 위해 boxShadow를 설정하지 않음
-          boxShadow: "none",
-        },
-      }}
-    >
+    <Dialog>
       <DialogContent>
         <CircularProgress size={50} />
       </DialogContent>

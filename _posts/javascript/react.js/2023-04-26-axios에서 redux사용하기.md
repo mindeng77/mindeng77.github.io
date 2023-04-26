@@ -1,6 +1,6 @@
 ---
 title: axios에서 redux사용하기
-date: 2023-04-06 17:31:00 +0900
+date: 2023-04-26 17:31:00 +0900
 categories: [Javascript, React.js]
 tags: [React.js, axios, 로딩바]
 published: true

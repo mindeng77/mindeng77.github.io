@@ -7,3 +7,5 @@ published: true
 ---
 
 [Throttle 와 Debounce 개념 정리하기](https://pks2974.medium.com/throttle-%EC%99%80-debounce-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-2335a9c426ff)
+
+[Debounce 와 Throttle 리액트로 구현하기](https://velog.io/@skawnkk/debounce-throttle)

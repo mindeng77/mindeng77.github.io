@@ -6,6 +6,12 @@ tags: [axios, refresh token]
 published: true
 ---
 
+- axios로 요청시 401에러가 발생하면 가지고 있던 refresh token으로 요청
+- 토큰 재발급 후 이전 요청 다시 요청
+- 토큰 재발급 중복 요청 방지
+
+**axios.js**
+
 ```javascript
 import axios from "axios";
 import store from "../stores";

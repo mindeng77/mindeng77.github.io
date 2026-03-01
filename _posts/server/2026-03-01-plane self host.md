@@ -51,4 +51,5 @@ docker run --name plane-aio --rm -it `
   -e AWS_S3_ENDPOINT_URL="http://${MYIP}:19000" `
   -e FILE_SIZE_LIMIT=10485760 `
   artifacts.plane.so/makeplane/plane-aio-commercial:stable
+
 ```
